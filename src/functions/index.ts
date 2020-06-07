@@ -1,11 +1,11 @@
-import { Folder, File } from '../interface/file';
+import {Folder, File} from '../interface/file';
 import {
   fileExist,
   createNewFolder,
   moveFile,
   readFile,
 } from '../adapter/file';
-import { getExt, isFolder, patchCreator } from '../util/util';
+import {getExt, isFolder, patchCreator} from '../util/util';
 
 export function createFile(folder: Folder): void {
   const filepatch = patchCreator(folder);
@@ -30,11 +30,11 @@ function createObject(file: string): File {
   };
 }
 
-export function runCreator(patch: string |null): void {
+export function runCreator(patch: string | null): void {
   readFile(patch || process.cwd())
-    .map((file) => {
-      return createObject(file) as File;
-    })
-    .filter((file) => file.extension)
-    .map((file) => settingPatch({ file, patch }));
+      .map((file) => {
+        return createObject(file) as File;
+      })
+      .filter((file) => file.extension)
+      .map((file) => settingPatch({file, patch}));
 }

@@ -9,7 +9,7 @@ export function createNewFolder(patch: string) {
   return fs.mkdirSync(patch);
 }
 
-export function readFile(patch: string) :string[] {
+export function readFile(patch: string): string[] {
   return fs.readdirSync(patch);
 }
 

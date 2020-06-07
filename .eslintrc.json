@@ -1,0 +1,30 @@
+{
+    "env": {
+        "es2020": true,
+        "node": true
+    },
+    "extends": [
+        "google"
+    ],
+    
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [".js",".ts"]
+          }
+        }
+      },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "ignorePatterns": [ "dist/*" ] ,
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "require-jsdoc" : 0,
+        "no-unused-vars": "off"
+    }
+}
