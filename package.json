@@ -1,0 +1,65 @@
+{
+  "name": "luisa-cli",
+  "version": "1.0.0",
+  "description": "New folder manager cli liinux friendly",
+  "main": "index.js",
+  "bin": {
+    "luisa-cli": "./dist/index.js"
+  },
+  "scripts": {
+    "start": "npm run build && node dist/index.js",
+    "start:dev": "nodemon",
+    "build": "rimraf ./dist && tsc",
+    "lint": "eslint . --ext .ts",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}",
+    "test": "jest "
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier-format && npm run lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devpedrocosta/luisa-cli.git"
+  },
+  "keywords": [
+    "luisa",
+    "angola",
+    "cli",
+    "folder",
+    "manager"
+  ],
+  "author": "Pedro costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devpedrocosta/luisa-cli/issues"
+  },
+  "homepage": "https://github.com/devpedrocosta/luisa-cli#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.11",
+    "husky": "^4.2.5",
+    "jest": "^22.4.4",
+    "mock-fs": "^4.12.0",
+    "nodemon": "^2.0.4",
+    "onchange": "^7.0.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/commander": "^2.12.2",
+    "@types/figlet": "^1.2.0",
+    "@types/shelljs": "^0.8.8",
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0",
+    "figlet": "^1.4.0",
+    "shelljs": "^0.8.4"
+  }
+}
