@@ -7,13 +7,14 @@ export function getCliName(): any {
   return chalk.cyan(figlet.textSync('\nLuisa-CLI'));
 }
 
-
-function getStartFormat(info:{version:string, creator:string}): string {
+function getStartFormat(info: { version: string; creator: string }): string {
   return `\n Version: ${info.version}  \n\n Creator: ${info.creator}  \n\n`;
 }
 
-export function getCliInfo():any {
-  return chalk.cyan(getStartFormat({version: Version, creator: 'Pedro Costa'}));
+export function getCliInfo(): any {
+  return chalk.cyan(
+      getStartFormat({version: Version, creator: 'Pedro Costa'}),
+  );
 }
 
 function errorMessage(command: string[]): string {

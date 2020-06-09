@@ -3,8 +3,9 @@ const command = 'FLag';
 
 describe(' Clii string functions test ', () => {
   it('Should get error on invalid command  ', () => {
-    expect(errorCommand([command]))
-        .toContain('error: unknown command \'FLag\' , use --help');
+    expect(errorCommand([command])).toContain(
+        'error: unknown command \'FLag\' , use --help',
+    );
   });
 
   it('Should get  creator name on strng info', () => {
@@ -19,5 +20,3 @@ describe(' Clii string functions test ', () => {
     expect(getCliName()).toContain('/ _` |_');
   });
 });
-
-

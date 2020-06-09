@@ -35,7 +35,8 @@ describe(' Util functions test ', () => {
       file: {name: fileTest, extension: fileExtension},
       patch: '/user/patch',
     };
-    expect(patchCreator(object))
-        .toEqual(`${object.patch}/Storage-${object.file.extension}`);
+    expect(patchCreator(object)).toEqual(
+        `${object.patch}/Storage-${object.file.extension}`,
+    );
   });
 });

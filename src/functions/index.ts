@@ -30,8 +30,8 @@ function createObject(file: string): File {
   };
 }
 
-export function runCreator(patch: string | null):void {
-   readFile(patch || process.cwd())
+export function runCreator(patch: string | null): void {
+  readFile(patch || process.cwd())
       .map((file) => {
         return createObject(file) as File;
       })
