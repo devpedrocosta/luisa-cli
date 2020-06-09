@@ -7,10 +7,10 @@ import {
 } from '../adapter/file';
 import {getExt, isFolder, patchCreator} from '../util/util';
 
-export function createFile(folder: Folder): void {
+export function createFile(folder: Folder) {
   const filepatch = patchCreator(folder);
   fileExisteOnFolder(filepatch);
-  moveFile(folder.file.name, filepatch);
+  return moveFile(folder.file.name, filepatch);
 }
 
 function fileExisteOnFolder(patch: string): void {
@@ -30,8 +30,8 @@ function createObject(file: string): File {
   };
 }
 
-export function runCreator(patch: string | null): void {
-  readFile(patch || process.cwd())
+export function runCreator(patch: string | null):void {
+   readFile(patch || process.cwd())
       .map((file) => {
         return createObject(file) as File;
       })

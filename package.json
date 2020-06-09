@@ -1,6 +1,6 @@
 {
   "name": "luisa-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "New folder manager cli liinux friendly",
   "main": "index.js",
   "bin": {
@@ -11,14 +11,15 @@
     "start:dev": "nodemon",
     "build": "rimraf ./dist && tsc",
     "lint": "eslint . --ext .ts  --fix",
-    "lint-and-fix": "eslint . --ext .ts --fix",
+    "lint-fix": "eslint . --ext .ts --fix",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}",
-    "test": "jest "
+    "test": "jest ",
+    "test-cov": "jest --coverage"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier-format && npm run lint"
+      "pre-commit": "npm run prettier-format && npm run lint && npm run test"
     }
   },
   "repository": {
@@ -61,6 +62,7 @@
     "@types/chalk": "^2.2.0",
     "@types/commander": "^2.12.2",
     "@types/figlet": "^1.2.0",
+    "@types/mock-fs": "^4.10.0",
     "@types/shelljs": "^0.8.8",
     "chalk": "^4.0.0",
     "commander": "^5.1.0",

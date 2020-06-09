@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
 import cli = require('commander');
-import {Version, start, errorCommand} from './util/cli.string';
+import {
+  Version,
+  getCliInfo,
+  getCliName,
+  errorCommand,
+} from './util/cli.string';
 import {runCreator} from './functions';
 
 cli.version(Version, '-v, --version', 'current version');
@@ -9,19 +14,23 @@ cli.version(Version, '-v, --version', 'current version');
 cli
     .command('hello')
     .description('Welcome to luisa-cli')
-    .action(() => start());
+    .action(() => {
+      getCliName();
+      getCliInfo();
+    });
 
 cli
-    .command('patch')
+    .command('patch <source>')
     .description('Patch to cli search')
     .action((patch) => runCreator(patch));
+
 cli
-    .command('local')
+    .command('pwd')
     .description('Current patch')
     .action(() => runCreator(null));
 
 cli.on('command:*', (command) => {
-  errorCommand(command);
+  console.log(errorCommand(command));
   process.exitCode = 1;
 });
 

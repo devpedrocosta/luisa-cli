@@ -1,46 +1,51 @@
-const fs = require('fs');
-import {fileExist, readFile} from './file';
+import {fileExist, readFile, createNewFolder, moveFile} from './file';
 
-const mock = require('mock-fs');
-
-mock({
-  'path/to/fake/dir': {
-    'some-file.txt': 'file content here',
-    'empty-dir': {
-      /** empty directory */
+import * as mock from 'mock-fs';
+const dir = 'dir.md';
+const tempDir = 'temp.md';
+const patch = '/test';
+beforeEach(async () => {
+  mock({
+    '/test': {
+      'dir.md': 'hello world!',
     },
-  },
-  'path/to/some.png': Buffer.from([8, 6, 7, 5, 3, 0, 9]),
-  'some/other/path': {
-    /** another empty directory */
-  },
+    'path/to/some.txt': 'hello world!',
+    '/mov': '',
+  });
 });
-jest.mock('fs');
+
+afterEach(async () => {
+  mock.restore();
+});
 
 describe(' Fs functions testt ', () => {
-  beforeAll(() => {
-    fs.writeFileSync.mockClear();
-    fs.readFileSync.mockReturnValue(false);
-    fs.existsSync.mockReturnValue(false);
-    fs.mkdirSync.mockReturnValue(true);
+  it('Shold file exist on mock directory ', async () => {
+    expect.assertions(1);
+    const file = fileExist(`${patch}/${dir}`);
+    expect(file).toBeTruthy();
+  });
+  it('Shold file dont exist on mock directory ', async () => {
+    expect.assertions(1);
+    const file = fileExist(`${patch}/${tempDir}`);
+    expect(file).toBeFalsy();
   });
 
-  it('returnNameInJsonFile', () => {
-    const name = readFile('path/to/fake/dir');
-    expect(name).toBe('test');
+  it('Shold read file name ', async () => {
+    expect.assertions(1);
+    const file = readFile(`${patch}`);
+    expect(file).toEqual([`${dir}`]);
   });
 
-  it('should file dont exist ', () => {
-    expect(fileExist('testmock')).toBe(false);
+  it('Shold read file name ', async () => {
+    expect.assertions(1);
+    createNewFolder(`${patch}/${tempDir}`);
+    const file = fileExist(`${patch}/${tempDir}`);
+    expect(file).toBeTruthy();
   });
 
-  it('should  file exist ', () => {
-    fs.existsSync.mockReturnValue(true);
-    expect(fileExist('testmock')).toBe(true);
-  });
-
-  it('should have called with...', () => {
-    fileExist('testmock');
-    expect(fs.existsSync).toHaveBeenCalledWith('testmock');
+  it('Shold move file  ', async () => {
+    expect.assertions(1);
+    const move = moveFile('path/to/some.txt', '/mov');
+    expect(move).toBeTruthy();
   });
 });
