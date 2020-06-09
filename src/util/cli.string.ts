@@ -1,7 +1,7 @@
 import chalk = require('chalk');
 import figlet = require('figlet');
 
-export const Version = '0.0.1';
+export const Version = '0.1.0';
 
 export function getCliName(): any {
   return chalk.cyan(figlet.textSync('\nLuisa-CLI'));

@@ -1,6 +1,6 @@
 {
   "name": "luisa-cli",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "New folder manager cli liinux friendly",
   "main": "index.js",
   "bin": {
