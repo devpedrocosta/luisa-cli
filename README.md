@@ -1,13 +1,14 @@
 # LUISA - CLI
 > The best orquestrator for your linux and mac , windows("soon!!!")
 
-[![NPM Version][npm-image]]
-[![Build Status][travis-image]]
+![NPM Version][npm-image]
+![Build Status][travis-image]
 
 
 Just try rsrsr
 
 ![](header.png)
+
 
 ## Installation
 
@@ -17,14 +18,30 @@ OS X & Linux:
 npm install -g luisa-cli 
 ```
 
+
 Windows:
 
 ```sh
 soon !!!
 ```
+
+## Commands
+
+ORCHEST THE FILES IN THE CURRENT DIRECTORY
+
+```sh
+luisa-cli  pwd   
+```
+
+ORCHESTRA THE FILES IN THE SPECIFIC DIRECTORY
+
+```sh
+luisa-cli  patch  /your patch   
+```
+
 ## Release History
 
-* 0.2.0
+* 0.3.0
     * The first proper release
     * CHANGE: Rename `cli()`
 * 0.0.1
