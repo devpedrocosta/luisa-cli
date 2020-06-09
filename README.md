@@ -3,7 +3,7 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
+
 
 Just try rsrsr
 
@@ -14,7 +14,7 @@ Just try rsrsr
 OS X & Linux:
 
 ```sh
-npm install -g luuisa-cli 
+npm install -g luisa-cli 
 ```
 
 Windows:
@@ -24,16 +24,9 @@ soon !!!
 ```
 ## Release History
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
 * 0.1.0
     * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
+    * CHANGE: Rename `cli()`
 * 0.0.1
     * Work in progress
 
@@ -53,8 +46,5 @@ Distributed under the ISC license.
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+
